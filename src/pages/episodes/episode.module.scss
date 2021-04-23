@@ -1,0 +1,108 @@
+.episode
+{
+    max-width: 45rem;
+    padding: 1rem 2rem;
+    margin: 0 auto;
+
+    .thumbnailContainer
+    {
+        position: relative;
+        height: 10rem;
+
+        img
+        {
+            height: 14rem;
+            border-radius: 1rem;
+        }
+
+        .thumb
+        {
+            height: 1.8rem;
+        }
+
+        .thumbPlay
+        {
+            height: 2.8rem;
+        }
+
+        button
+        {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            border: 0;
+            position: absolute;
+            z-index: 5;
+            font-size: 0;
+
+            &:hover
+            {
+                filter: brightness(0.93);
+            }
+
+            &:first-child
+            {
+                left: 0;
+                top: 70%;
+                background-color: var(--purple-500);
+                transform: translate(-50%, -50%);
+            }
+
+            &:last-child
+            {
+                right: 0;
+                top: 70%;
+                background-color: var(--green-500);
+                transform: translate(50%, -50%);
+            }
+
+            &:hover
+            {
+                filter: brightness(0.93);
+            }
+        }
+    }
+
+    header
+    {
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--gray-200);
+
+        h1
+        {
+            margin-top: 5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        span
+        {
+            display: inline-block;
+            font-size: 0.87rem;
+
+            & + span
+            {
+                margin-left: 1rem;
+                padding-left: 1rem;
+                position: relative;
+
+                &::before
+                {
+                    content: "";
+                    width: 4px;
+                    height: 4px;
+                    border-radius: 2px;
+                    background-color: var(--green-500);
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translate(-50%, -50%)
+                }
+            }
+        }
+    }
+
+    .description
+    {
+        margin: .5rem 0;
+    }
+}

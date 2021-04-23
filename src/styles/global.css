@@ -1,0 +1,54 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --white: #FFF;
+  --green-500: #04D361;
+  --gray-50: #F7F8FA;
+  --gray-100: #E6E8EB;
+  --gray-200: #AFB2B1;
+  --gray-500: #808080;
+  --gray-800: #494D4B;
+  --purple-200: #bba2f7;
+  --purple-300: #9F75FF;
+  --purple-400: #9164FA;
+  --purple-500: #8257E5;
+  --purple-800: #6F48C9;
+}
+
+@media (max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+body, input, textarea, button {
+  font: 500 1rem Inter, sans-serif;
+  color: var(--gray-500);
+}
+
+body {
+  background-color: var(--gray-100);
+}
+
+body h1, body h2, body h3, body h4, body h5, body h6 {
+  font: 600 1rem Lexend, sans-serif;
+  color: var(--gray-800);
+}
+
+body h1 {
+  font-size: 2rem;
+}
+
+body h2 {
+  font-size: 1.5rem;
+}
+
+body button {
+  cursor: pointer;
+}
+/*# sourceMappingURL=global.css.map */

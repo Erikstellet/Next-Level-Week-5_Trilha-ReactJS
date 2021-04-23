@@ -1,0 +1,186 @@
+.homepage {
+  padding: 0 4rem;
+  height: calc(100vh - 6.5rem);
+  overflow-y: scroll;
+}
+
+.homepage h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.latestEpisodes ul {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.latestEpisodes ul li {
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.latestEpisodes ul li img {
+  height: 6rem;
+  width: 10rem;
+  border-radius: 1rem;
+}
+
+.episodesDetails {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 1rem;
+}
+
+.episodesDetails a {
+  display: block;
+  color: var(--gray-800);
+  font-family: Lexend, sans-serif;
+  font-weight: 600;
+  text-decoration: none;
+  line-height: 1.4rem;
+}
+
+.episodesDetails a:hover {
+  text-decoration: underline;
+}
+
+.episodesDetails p {
+  font-size: 0.87rem;
+  margin-top: 0.5rem;
+  max-width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.episodesDetails span {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.87rem;
+}
+
+.episodesDetails span:last-child {
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+  position: relative;
+}
+
+.episodesDetails span:last-child::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #DDD;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.button {
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 0.67rem;
+  font-size: 0;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+}
+
+.button .imageButton {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.button:hover {
+  -webkit-filter: brightness(0.93);
+          filter: brightness(0.93);
+}
+
+.allEpisodes {
+  padding-bottom: 2rem;
+}
+
+.allEpisodes table {
+  width: 100%;
+}
+
+.allEpisodes table th, .allEpisodes table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.allEpisodes table th {
+  color: var(--gray-200);
+  text-transform: uppercase;
+  font: 500 0.75rem Lexend, sans-serif;
+  text-align: left;
+}
+
+.allEpisodes table td {
+  font-size: 0.87rem;
+}
+
+.allEpisodes table td img {
+  width: 13rem;
+  height: 4rem;
+  border-radius: 0.5rem;
+}
+
+.allEpisodes table td a {
+  color: var(--gray-800);
+  font-family: Lexend, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  line-height: 1.4rem;
+}
+
+.allEpisodes table td a:hover {
+  text-decoration: underline;
+}
+
+.allEpisodes table td button {
+  width: 3rem;
+  height: 3rem;
+  background: var(--white);
+  border: 1px solid var(--gray-100);
+  border-radius: 0.5rem;
+  font-size: 0;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+}
+
+.allEpisodes table td button img {
+  width: 2.0rem;
+  height: 2.0rem;
+}
+
+.allEpisodes table td button:hover {
+  -webkit-filter: brightness(0.93);
+          filter: brightness(0.93);
+}
+/*# sourceMappingURL=home.module.css.map */
