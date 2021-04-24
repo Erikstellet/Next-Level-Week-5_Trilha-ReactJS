@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { api } from '../../services/api';
 import { parseISO, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
 
@@ -71,18 +70,43 @@ export default function Episode({ episode }: EpisodeProps)
     )
 }
 
+/*
+   client(browser) - true 
+   next.js(node.js) - blocking 
+   server(back-end)
+*/
+// Toda rota que tiver getStaticProps e colchetes precisa desse metodo.
 export const getStaticPaths: GetStaticPaths = async () =>
 {
+    const { data } = await api.get('episodes',
+    {
+        params:
+        {
+            _limit: 2,
+            _sort: 'published_at',
+            _order: 'desc'
+        }
+    });
+
+    const paths = data.map(ep =>
+    {
+        return {
+            params: 
+            {
+                slug: ep.id
+            }
+        }
+    }) 
+
     return {
-        paths: [],
-        fallback: 'blocking',
+        paths,
+        fallback: 'blocking',       // Incremental  Static Regeneration
     }
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) =>
 {
     const { slug } = ctx.params;
-
     const { data } = await api.get(`/episodes/${slug}`);
 
     const episode = 

@@ -9,6 +9,8 @@ import ptBR from 'date-fns/locale/pt-BR';
 import styles from './home.module.scss';
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
+import { useContext } from 'react';
+import { PlayerContext } from '../contexts/PlayerContext';
 
 type Episode =
 {
@@ -30,16 +32,18 @@ type HomeProps =
   latestEpisodes: Episode[];
 }
 
+// SPA
+/*
+  useEffect(() => 
+  {
+    fetch('http://localhost:3333/episodes').then(res => res.json())
+                                          .then(data => console.log(data));
+  }, [])
+*/
+
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
 {
-  // SPA
-  /*
-    useEffect(() => 
-    {
-      fetch('http://localhost:3333/episodes').then(res => res.json())
-                                            .then(data => console.log(data));
-    }, [])
-  */
+  const { play } = useContext(PlayerContext);
 
   return (
     <div className={styles.homepage}>
@@ -71,7 +75,9 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
                     <span>{episode.durationAsString}</span>
                   </div>
 
-                  <button className={styles.button}>
+                  <button className={styles.button}
+                          onClick={() => play(episode)}
+                  >
                     <img className={styles.imageButton} 
                          src="/play-green.svg" alt="Tocar Episódio"/>
                   </button>
