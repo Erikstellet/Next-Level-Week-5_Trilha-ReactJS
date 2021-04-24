@@ -43,7 +43,8 @@ type HomeProps =
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
 {
-  const { play } = useContext(PlayerContext);
+  const { playList } = useContext(PlayerContext);
+  const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
     <div className={styles.homepage}>
@@ -53,7 +54,7 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
         
         <ul>
           {
-            latestEpisodes.map(episode =>
+            latestEpisodes.map((episode, i) =>
             {
               return (
                 <li key={episode.id}>
@@ -76,7 +77,7 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
                   </div>
 
                   <button className={styles.button}
-                          onClick={() => play(episode)}
+                          onClick={() => playList(episodeList, i)}
                   >
                     <img className={styles.imageButton} 
                          src="/play-green.svg" alt="Tocar Episódio"/>
@@ -108,7 +109,7 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
           </thead>
 
           <tbody>
-            {allEpisodes.map(ep =>
+            {allEpisodes.map((ep, i) =>
             {
               return (
                 <tr key={ep.id}>
@@ -122,13 +123,12 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
                   </td>
 
                   <td> <a href={`/episodes/${ep.id}`}>{ep.title}</a> </td>
-                  <td>{ep.title}</td>
                   <td>{ep.members}</td>
                   <td style={{width: 100}}>{ep.publishedAt}</td>
                   <td>{ep.durationAsString}</td>
 
                   <td>
-                    <button >
+                    <button type="button" onClick={() => playList(episodeList, i + latestEpisodes.length)}>
                       <img src="/play-green.svg" alt="Tocar Episódio"/>
                     </button>
                   </td>
