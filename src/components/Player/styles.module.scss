@@ -6,7 +6,7 @@
     justify-content: space-between;
     
     height: 100vh;
-    width: 26.5rem;
+    width: 28rem;
     padding: 2rem 4rem;
 
     background: var(--purple-500);
@@ -17,6 +17,18 @@
         display: flex;
         align-items: center;
         gap: 1rem;
+
+        img
+        {
+            margin-bottom: 1rem;  
+        }
+
+        strong 
+        {
+            margin-bottom: 1rem;
+            font-family: Lexend, sans-serif;
+            font-weight: 600;
+        }
     }
 
     strong
@@ -29,7 +41,7 @@
     {
         align-self: stretch;
         
-        &.empty
+        &.empty .progress
         {
             opacity: 0.5;
         }
@@ -43,20 +55,22 @@
     img
     {
         border-radius: 1.5rem;
+        width: 15rem;
+        width: 15rem;
     }
 
     strong
     {
         display: block;
-        margin-top: 2rem;
         font: 600 1.25rem Lexend, sans-serif;
         line-height: 1.75rem;
+        margin-top: 1rem;
     }
 
     span
     {
         display: block;
-        margin-top: 1rem;
+        margin: 1rem 0;
         opacity: 0.6rem;
         line-height: 1.5rem;
     }
@@ -84,12 +98,13 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.8rem;
+    margin-top: 1rem;
 
     span
     {
         display: inline-block;
         text-align: center;
-        width: 4rem;
+        width: 4.5rem;
     }
 
     .slider
@@ -99,7 +114,7 @@
         .emptySlider
         {
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: var(--purple-300);
             border-radius: 2px;
         }
@@ -111,7 +126,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
     gap: 1.5rem;
 
     button
@@ -119,17 +134,19 @@
         background: transparent;
         border: 0;
         font-size: 0; 
+        width: 6rem;
+        height: 6rem;
 
         &:disabled
         {
             cursor: default;
+            opacity: 0.5;
         }
 
         &.playButton
         {
-            width: 4rem;
-            height: 4rem;
-
+            width: 4.2rem;
+            height: 3.5rem;
             border-radius: 1rem;
             background: var(--purple-400);
             transition: .2s;
@@ -140,11 +157,24 @@
             filter: brightness(0.9);
             border-radius: 1rem;
         }
+
+        &.isActive
+        {
+            filter: invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
+
+        &.isActive:hover
+        {
+            filter: brightness(0.6) invert(0.35) sepia(1) saturate(3) hue-rotate(100deg);
+        }
     }
 }
 
 .imgBtn
 {
+    width: 3.5rem;
+    height: 3.5rem;
+
     transition: all .4s ease-in-out;
 
     &:hover
@@ -152,4 +182,20 @@
         transform: scale(1.5);
     }
 }
+
+.imgBtnPause
+{
+    width: 3.5rem;
+    height: 2.5rem;
+
+    transition: all .4s ease-in-out;
+
+    &:hover
+    {
+        transform: scale(1.5);
+    }
+}
+
+
+
 

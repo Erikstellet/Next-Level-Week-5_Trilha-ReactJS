@@ -1,7 +1,7 @@
 // import { useEffect } from "react";
 import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import Head from 'next/head';
 
 import {format, parseISO } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
@@ -9,8 +9,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 import styles from './home.module.scss';
 import { api } from '../services/api';
 import { convertDurationToTimeString } from '../utils/convertDurationToTimeString';
-import { useContext } from 'react';
-import { PlayerContext } from '../contexts/PlayerContext';
+import {  usePlayer } from '../contexts/PlayerContext';
 
 type Episode =
 {
@@ -43,11 +42,14 @@ type HomeProps =
 
 export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
 {
-  const { playList } = useContext(PlayerContext);
+  const { playList } = usePlayer();
   const episodeList = [...latestEpisodes, ...allEpisodes];
 
   return (
     <div className={styles.homepage}>
+      <Head>
+        <title>Home | Podcastr</title>
+      </Head>
       <section className={styles.latestEpisodes}>
 
         <h2>Últimos Lançamentos</h2>
@@ -66,9 +68,10 @@ export default function Home({ allEpisodes, latestEpisodes }: HomeProps)
                   /> 
 
                   <div className={styles.episodesDetails}>
-                    <Link href={`/episodes/${episode.id}`}>
-                      <a>{episode.title}</a>
-                    </Link>
+
+                    <a href={`/episodes/${episode.id}`}>
+                      {episode.title}
+                    </a>
                     
                     <p>{episode.members}</p>
 

@@ -7,6 +7,8 @@ import { parseISO, format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 import { convertDurationToTimeString } from '../../utils/convertDurationToTimeString';
 import styles from './episode.module.scss';
+import { usePlayer } from '../../contexts/PlayerContext';
+import  Head  from 'next/head';
 
 type Episode =
 {
@@ -28,8 +30,15 @@ type EpisodeProps =
 
 export default function Episode({ episode }: EpisodeProps)
 {
+    const { play } = usePlayer();
+    const filterTitle = episode.title.substr(0, 12);    //Diminui o tamalho do title no Head
+
     return (
         <div className={styles.episode}>
+
+            <Head>
+                <title> {filterTitle} | Podcastr </title>
+            </Head> 
             
             <div className={styles.thumbnailContainer}>
 
@@ -47,7 +56,7 @@ export default function Episode({ episode }: EpisodeProps)
                        objectFit="cover"
                 />
 
-                <button type="button">
+                <button type="button" onClick={() => play(episode)}>
                     <img src="/play.svg" alt="Tocar Episódio" 
                          className={styles.thumbPlay}>
                     </img>
